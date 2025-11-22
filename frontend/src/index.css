@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Theme (Beige Premium UI) */
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #3B3024;
+  background-color: #F7F2E8;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary: #8B5E34;
+  --primary-dark: #6F4527;
+  --accent: #C9A887;
+  --surface: #FFFFFF;
+  --border: #E4D8C8;
+  --text: #3B3024;
+}
+
+/* Base reset */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #F7F2E8;
+  color: var(--text);
+}
+
+/* Buttons */
+@layer components {
+  .btn-primary {
+    @apply bg-[#8B5E34] hover:bg-[#A47148] text-white px-6 py-3 rounded-lg font-semibold tracking-wide shadow-md hover:shadow-xl transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply border border-[#8B5E34] text-[#8B5E34] px-6 py-3 rounded-lg font-medium hover:bg-[#8B5E34] hover:text-white transition duration-300;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+
+  /* Inputs */
+  .input-field {
+    @apply w-full border border-[#E4D8C8] bg-white rounded-lg px-4 py-3 text-[#3B3024] placeholder-[#A7A094] focus:outline-none focus:ring-2 focus:ring-[#8B5E34] focus:border-transparent transition-all duration-200;
+  }
+
+  /* Card Component */
+  .card {
+    @apply bg-white border border-[#E4D8C8] shadow-xl rounded-2xl backdrop-blur-sm;
+  }
+
+  /* Table styling */
+  .table-header {
+    @apply bg-[#F0E7DB] text-[#3B3024] font-semibold text-sm uppercase tracking-wide;
+  }
+
+  .table-row {
+    @apply hover:bg-[#F7ECD9] transition duration-200;
+  }
+
+  /* Animations */
+  .fade-in {
+    @apply opacity-0 animate-[fadeIn_0.5s_ease_forwards];
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
