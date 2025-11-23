@@ -8,6 +8,7 @@ const router = express.Router();
  * Returns: {"ok": true, "version": "1.0"}
  */
 router.get('/healthz', (req, res) => {
+    console.log("healthcheck is active");
     res.json({
         ok: true,
         version: '1.0'

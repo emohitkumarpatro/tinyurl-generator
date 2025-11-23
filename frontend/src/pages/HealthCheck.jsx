@@ -26,6 +26,8 @@ function HealthCheck() {
         }
     };
 
+    console.log("healthcheck is active");
+
     useEffect(() => {
         fetchHealth();
     }, []);
@@ -309,8 +311,8 @@ function HealthCheck() {
                         <motion.button
                             onClick={() => setAutoRefresh(!autoRefresh)}
                             className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 min-h-[48px] ${autoRefresh
-                                    ? 'bg-gradient-to-r from-[#8B5E34] to-[#A47148] text-white shadow-lg'
-                                    : 'bg-[#E4D8C8] text-[#6C5E51]'
+                                ? 'bg-gradient-to-r from-[#8B5E34] to-[#A47148] text-white shadow-lg'
+                                : 'bg-[#E4D8C8] text-[#6C5E51]'
                                 }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
