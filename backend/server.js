@@ -13,9 +13,17 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173' || 'https://tinyurl-generator.vercel.app',
+    origin: [
+        process.env.FRONTEND_URL,
+        'http://localhost:5173',
+        'https://tinyurl-generator-4wmc.vercel.app',
+        'https://emohitkumarpatro-tinyurl-generator.vercel.app',
+        'https://emohitkumarpatro-tinyurl-git-dcebc0-emohitkumarpatros-projects.vercel.app',
+        'https://emohitkumarpatro-tinyurl-generator-gmvn9m9li.vercel.app'
+    ],
     credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
