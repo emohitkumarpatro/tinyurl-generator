@@ -14,17 +14,42 @@ function HealthCheck() {
     const fetchHealth = async () => {
         try {
             setLoading(true);
-            const data = await checkHealth();
-            setHealthData(data);
+
+            const startTime = performance.now();
+            const response = await fetch("https://tinyurl-generator-4wmc.vercel.app/healthz", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            const endTime = performance.now();
+
+            const responseTime = Math.round(endTime - startTime);
+            const body = await response.json();
+
+            setHealthData({
+                ...body,
+                responseTime,
+                timestamp: new Date().toISOString(),
+                backendUrl: "https://tinyurl-generator-4wmc.vercel.app"
+            });
+
             setError(null);
             setLastChecked(new Date());
         } catch (err) {
-            setError(err);
+            setError({
+                ok: false,
+                error: err.message,
+                responseTime: 0,
+                timestamp: new Date().toISOString(),
+                backendUrl: "https://tinyurl-generator-4wmc.vercel.app"
+            });
             setHealthData(null);
         } finally {
             setLoading(false);
         }
     };
+
 
     console.log("healthcheck is active");
 
